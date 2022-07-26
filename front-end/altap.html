@@ -27,9 +27,13 @@
                     },
                     method: "POST",
                     body: JSON.stringify(data)
-                })
-                .then(function(res){ console.log(res) })
-                .catch(function(res){ console.log(res) });
+                }).then(function(res){
+                    console.log(res);
+                    alert('Datos guardados');
+                }).catch(function(res){
+                    console.log(res);
+                    alert('Error');
+                });
             });
         });
     </script>
