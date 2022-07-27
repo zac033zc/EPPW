@@ -32,6 +32,25 @@
                     }
                 })
             })
+
+            $('#refrescos').on('click', () => {
+                $.ajax({
+                    url: 'consultarefrescos.php',
+                    success: data => {
+                        JSON.parse(data).data.forEach(row => {
+                            $('tbody').append(
+                                $('<tr>').append(
+                                    $('<td>').html(row.nombre_productos)
+                                ).append(
+                                    $('<td>').html(row.cantidad)
+                                ).append(
+                                    $('<td>').html(row.tipo_producto)
+                                )
+                            )
+                        })
+                    }
+                })
+            })
         })
     </script>
 
@@ -47,10 +66,10 @@
         <div class="dropdown dropright">
             <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">Categorias</button>
             <div class="dropdown-menu">
-                <button type="button" class="dropdown-item" onclick="refrescos();">Refrescos</button>
-                <button type="button" class="dropdown-item" onclick="pan();">Pan</button>
-                <button type="button" class="dropdown-item" onclick="galletas();">Galletas</button>
-                <button type="button" class="dropdown-item" onclick="jabones();">Jabones</button>
+                <button type="button" class="dropdown-item" id="refrescos">Refrescos</button>
+                <button type="button" class="dropdown-item" id="pan">Pan</button>
+                <button type="button" class="dropdown-item" id="galletas">Galletas</button>
+                <button type="button" class="dropdown-item" id="jabones">Jabones</button>
                 <div class="dropdown-divider"></div>
                 <button type="button" class="dropdown-item" id="todas">Todas</button>
             </div>
@@ -69,7 +88,7 @@
                     </tr>
                 </thead>
                 <tbody id="contenido">
-
+                    
                 </tbody>
             </table>
         </div>
