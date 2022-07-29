@@ -15,6 +15,7 @@
     <script>
         $(document).ready(() => {
             $('#todas').on('click', () => {
+                $('tbody').empty();
                 $.ajax({
                     url: 'consultagobal.php',
                     success: data => {
@@ -34,6 +35,7 @@
             })
 
             $('#refrescos').on('click', () => {
+                $('tbody').empty();
                 $.ajax({
                     url: 'consultarefrescos.php',
                     success: data => {
@@ -78,8 +80,8 @@
             <a href="altap.html" class="btn btn-primary">Agregar</a>
         </div>
         <br>
-        <div class="table-responsive">
-            <table class="table table-dark table-hover">
+        <div class="table-responsive table1">
+            <table class="table table-primary table-hover">
                 <thead>
                     <tr>
                         <th>Nombre del producto</th>
@@ -87,7 +89,7 @@
                         <th>Tipo de producto</th>
                     </tr>
                 </thead>
-                <tbody id="contenido">
+                <tbody>
                     
                 </tbody>
             </table>
